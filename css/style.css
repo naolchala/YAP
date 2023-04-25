@@ -129,6 +129,7 @@ nav .nav-link:hover::after {
   right: 0px;
   width: 54%;
   height: 98%;
+  z-index: -2;
 }
 .hero .right-img-container::before {
   display: block;
@@ -188,16 +189,25 @@ section .section-title {
 }
 
 .skills .skills-container {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 30px;
+  gap: 50px 30px;
 }
 .skills .skills-container .skill {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  border: 1px solid var(--primary-light);
+  border: 3px solid var(--bg);
+  border-radius: 30px 5px 30px 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  transition: all 300ms ease-in;
+}
+.skills .skills-container .skill:hover {
+  border-color: var(--primary-light);
+  color: var(--primary-light);
 }
 .skills .skills-container .skill .skill-icon {
   font-size: 3.3em;
@@ -207,6 +217,97 @@ section .section-title {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1.3px;
+}
+
+.projects .projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 30px;
+}
+.projects .projects-container .project {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 15px 0 15px 0;
+}
+.projects .projects-container .project:hover {
+  border-color: var(--primary-light);
+}
+.projects .projects-container .project h3 {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+.projects .projects-container .project p {
+  flex: 1;
+  font-size: 0.8em;
+  font-weight: 500;
+  line-height: 1.5em;
+  letter-spacing: 1.1px;
+}
+.projects .projects-container .project .project-footer {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+}
+.projects .projects-container .project .project-footer .date {
+  flex: 1;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.projects .projects-container .project .project-footer .links a {
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+}
+.projects .projects-container .project .project-footer .links a:hover {
+  color: var(--primary-light);
+}
+
+footer {
+  scroll-snap-align: end;
+  display: flex;
+  flex-direction: column;
+}
+footer .footer-links {
+  padding: 50px var(--h-offset);
+  display: flex;
+  background-color: var(--primary-light);
+}
+footer .footer-links .col {
+  flex: 1;
+}
+footer .footer-links .col h3 {
+  margin-bottom: 30px;
+}
+footer .footer-links .col div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+footer .footer-links .col div a {
+  text-decoration: none;
+  color: var(--bg);
+  position: relative;
+}
+footer .footer-links .col div a::after {
+  position: absolute;
+  height: 1px;
+  width: 0%;
+  background-color: var(--bg);
+  content: "";
+  display: block;
+  transition: all 300ms ease-out;
+}
+footer .footer-links .col div a:hover::after {
+  width: 100%;
+}
+footer .copy-footer {
+  background-color: var(--primary-dark);
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
 }
 
 @keyframes light {
